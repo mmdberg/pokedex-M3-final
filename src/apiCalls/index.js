@@ -5,13 +5,11 @@ export const getPokemonTypeData = async () => {
     const pokemonInfo = await getPokemon(pokemonTypeData)
     return pokemonInfo
   } catch (error) {
-    console.log('get type data:', error)
     throw new Error('Unable to get Pokemon Type Data')
   }
 }
 
 export const getPokemon = (typeArray) => {
-
   const objectPromises = typeArray.map( async type => {
     const pokemonPromises = type.pokemon.map(async id => {
       try {

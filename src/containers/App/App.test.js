@@ -17,7 +17,7 @@ describe('App', () => {
       />)
   });
 
-  it.skip('should match the snapshot', () => {
+  it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
@@ -28,7 +28,6 @@ describe('App', () => {
   });
 
   it('should call addTypeData on page load'), async () => {
-    await wrapper.instance().componentDidMount()
     expect(mockAddTypeData).toHaveBeenCalled()
   };  
 
