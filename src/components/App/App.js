@@ -10,7 +10,6 @@ import * as actions from '../../actions';
 export class App extends Component {
   async componentDidMount() {
     const typeData = await api.getPokemonTypeData()
-    console.log('Data in app:', typeData)
     this.props.addTypeData(typeData)
   }
 
@@ -25,8 +24,6 @@ export class App extends Component {
           <CardContainer /> :
           <img src={gif} alt='type of pokemon' />
         }
-        
-
 
       </div>
     );
