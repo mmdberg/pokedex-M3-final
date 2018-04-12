@@ -1,3 +1,7 @@
   .card-container {
     background-color: floralwhite;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 50px;
   }
