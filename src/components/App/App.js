@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import FakeContainer from '../../containers/FakeContainer/'
+import FakeContainer from '../../containers/FakeContainer/';
+import * as api from '../../apiCalls'
 
 class App extends Component {
+  componentDidMount() {
+    api.getPokemonTypeData()
+  }
 
   render() {
     return (
