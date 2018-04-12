@@ -16,39 +16,32 @@ export class CardContainer extends Component {
   }
 
   handleClick = (type) => {
-    // this.setState({
-    //   favorite: type
-    // })
     this.makeFavoriteArray(type)
-
-    //fetch for pokemon data
-  }
-
-  componentDidMount() {
-    const pokemonList = this.props.typeData.map((type, index) => 
-      <Card key={index} type={type} pokemon={[]} handleClick={this.handleClick}/>)
-    this.setState({
-      pokemonList
-    })
   }
 
   makeFavoriteArray = (type) => {
     const favoritedList = this.props.typeData.map((typeObj, index) => {
       if (typeObj.id === type.id) {
-        return <Card key={index} type={type} pokemon={type.pokemon} handleClick={this.handleClick}/>  
+        return <Card key={index} type={typeObj} className='card active' pokemon={type.pokemon} handleClick={this.handleClick}/>  
       } else {
-        return <Card key={index} type={type} pokemon={[]} handleClick={this.handleClick}/>  
+        return <Card key={index} type={typeObj} className='card' pokemon={[]} handleClick={this.handleClick}/>  
       }
     })
-    console.log('favorited list', favoritedList)
     this.setState({
       favoritedList
     })
     
   }
 
+  componentDidMount() {
+    const pokemonList = this.props.typeData.map((type, index) => 
+      <Card key={index} type={type} className='card' pokemon={[]} handleClick={this.handleClick}/>)
+    this.setState({
+      pokemonList
+    })
+  }
+
   render() {
-    console.log()
     return (
       <div className="card-container">
         { 

@@ -19,6 +19,7 @@ export class App extends Component {
         <header className='header'>
           <h1> POKéDEX </h1>
         </header>
+        <p class='instructions'>Click the pokemon type to see characters:</p>
         {
           this.props.typeData.length > 0 ? 
           <CardContainer /> :
