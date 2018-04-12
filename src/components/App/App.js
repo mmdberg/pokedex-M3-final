@@ -23,7 +23,6 @@ export class App extends Component {
           this.props.typeData.length > 0 ? 
           <CardContainer /> :
           <img src={gif} />
-
         }
 
 
