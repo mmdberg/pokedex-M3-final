@@ -7,6 +7,7 @@ import './styles.css';
 export const CardContainer = ({typeData}) => {
   const pokemonList = typeData.map((type, index) => 
     <Card key={index} type={type} />) 
+  
   return (
     <div className="card-container">
       {pokemonList}

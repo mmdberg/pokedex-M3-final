@@ -11,7 +11,7 @@ export class App extends Component {
   async componentDidMount() {
     const typeData = await api.getPokemonTypeData()
     console.log('Data in app:', typeData)
-    // this.props.addTypeData(typeData)
+    this.props.addTypeData(typeData)
   }
 
   render() {
@@ -23,8 +23,9 @@ export class App extends Component {
         {
           this.props.typeData.length > 0 ? 
           <CardContainer /> :
-          <img src={gif} />
+          <img src={gif} alt='type of pokemon' />
         }
+        
 
 
       </div>
