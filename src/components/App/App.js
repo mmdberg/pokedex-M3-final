@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import FakeContainer from '../../containers/FakeContainer/';
-import * as api from '../../apiCalls'
+import * as api from '../../apiCalls';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
-class App extends Component {
-  componentDidMount() {
-    api.getPokemonTypeData()
+export class App extends Component {
+  async componentDidMount() {
+    const typeData = await api.getPokemonTypeData()
+    console.log('typeData in App', typeData)
+    this.props.addTypeData(typeData)
+
   }
 
   render() {
@@ -18,5 +23,13 @@ class App extends Component {
   }
 }
 
+export const mapStateToProps = state => ({
+  typeData: state.typeData
+});
 
-export default App;
+export const mapDispatchToProps = dispatch => ({
+  addTypeData: pokemonTypes => dispatch(actions.addTypeData(pokemonTypes))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
