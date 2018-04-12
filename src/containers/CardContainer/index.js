@@ -1,14 +1,21 @@
 import React from 'react';
-import Card from '../../components/Card';
+import { Card } from '../../components/Card';
 import { connect } from 'react-redux';
+import './styles.css';
 
-export const CardContainer = () => {
 
+export const CardContainer = ({typeData}) => {
+  const pokemonList = typeData.map((type, index) => 
+    <Card key={index} type={type} />) 
   return (
-    <div>
-      
+    <div className="card-container">
+      {pokemonList}
     </div>
   )
 }
 
-export default connect(null, null)(CardContainer)
+export const mapStateToProps = state => ({
+  typeData: state.typeData
+})
+
+export default connect(mapStateToProps, null)(CardContainer)
