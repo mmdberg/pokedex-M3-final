@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CardContainer from '../../containers/CardContainer/';
+import gif from '../../loading.gif';
 
 import * as api from '../../apiCalls';
 import { connect } from 'react-redux';
@@ -18,7 +19,12 @@ export class App extends Component {
         <header className='header'>
           <h1> POKéDEX </h1>
         </header>
-        <CardContainer />
+        {
+          this.props.typeData.length > 0 ? 
+          <CardContainer /> :
+          <img src={gif} />
+        }
+
 
       </div>
     );
