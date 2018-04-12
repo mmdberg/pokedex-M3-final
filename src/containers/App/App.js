@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import CardContainer from '../../containers/CardContainer/';
 import gif from '../../loading.gif';
-
 import * as api from '../../apiCalls';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   async componentDidMount() {
@@ -19,7 +19,7 @@ export class App extends Component {
         <header className='header'>
           <h1> POKéDEX </h1>
         </header>
-        <p class='instructions'>Click the pokemon type to see characters:</p>
+        <p className='instructions'>Click the pokemon type to see characters:</p>
         {
           this.props.typeData.length > 0 ? 
           <CardContainer /> :
@@ -39,5 +39,9 @@ export const mapDispatchToProps = dispatch => ({
   addTypeData: pokemonTypes => dispatch(actions.addTypeData(pokemonTypes))
 })
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+  typeData: PropTypes.array,
+  addTypeData: PropTypes.func
+}

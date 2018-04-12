@@ -4,7 +4,7 @@ exports[`CardContainer should match snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Unknown
+  Symbol(enzyme.__unrendered__): <CardContainer
     typeData={
       Array [
         Object {
@@ -35,6 +35,9 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Unknown
+          className="card"
+          handleClick={[Function]}
+          pokemon={Array []}
           type={
             Object {
               "id": "1",
@@ -59,6 +62,9 @@ ShallowWrapper {
         "key": "0",
         "nodeType": "function",
         "props": Object {
+          "className": "card",
+          "handleClick": [Function],
+          "pokemon": Array [],
           "type": Object {
             "id": "1",
             "name": "normal",
@@ -86,6 +92,9 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Unknown
+            className="card"
+            handleClick={[Function]}
+            pokemon={Array []}
             type={
               Object {
                 "id": "1",
@@ -110,6 +119,9 @@ ShallowWrapper {
           "key": "0",
           "nodeType": "function",
           "props": Object {
+            "className": "card",
+            "handleClick": [Function],
+            "pokemon": Array [],
             "type": Object {
               "id": "1",
               "name": "normal",

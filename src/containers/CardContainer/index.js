@@ -2,25 +2,23 @@ import React, { Component } from 'react';
 import { Card } from '../../components/Card';
 import { connect } from 'react-redux';
 import './styles.css';
-
+import PropTypes from 'prop-types';
 
 export class CardContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
       pokemonList: [],
-      favoritedList: [],
-      favorite: {},
-      favoriteInfo: []
+      activeList: []
     }
   }
 
   handleClick = (type) => {
-    this.makeFavoriteArray(type)
+    this.makeActiveArray(type)
   }
 
-  makeFavoriteArray = (type) => {
-    const favoritedList = this.props.typeData.map((typeObj, index) => {
+  makeActiveArray = (type) => {
+    const activeList = this.props.typeData.map((typeObj, index) => {
       if (typeObj.id === type.id) {
         return <Card key={index} type={typeObj} className='card active' pokemon={type.pokemon} handleClick={this.handleClick}/>  
       } else {
@@ -28,9 +26,8 @@ export class CardContainer extends Component {
       }
     })
     this.setState({
-      favoritedList
+      activeList
     })
-    
   }
 
   componentDidMount() {
@@ -45,7 +42,7 @@ export class CardContainer extends Component {
     return (
       <div className="card-container">
         { 
-          this.state.favoritedList.length > 0 ? this.state.favoritedList : this.state.pokemonList
+          this.state.activeList.length > 0 ? this.state.activeList : this.state.pokemonList
         }
         
       </div>
@@ -57,4 +54,8 @@ export const mapStateToProps = state => ({
   typeData: state.typeData
 })
 
-export default connect(mapStateToProps)(CardContainer)
+export default connect(mapStateToProps)(CardContainer);
+
+CardContainer.propTypes = {
+  typeData: PropTypes.array
+}

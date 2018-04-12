@@ -9,6 +9,10 @@ describe('CardContainer', () => {
     expect(wrapper).toMatchSnapshot()
   });
 
+  it('should call makeActiveArray with right params on handleClick', () => {
+
+  });
+
   describe('mapStateToProps', () => {
     it('should correctly map typeData to props', () => {
       const mockState = {
