@@ -28,7 +28,6 @@ describe('App', () => {
   });
 
   it('should call addTypeData on page load'), async () => {
-    await wrapper.instance().componentDidMount()
     expect(mockAddTypeData).toHaveBeenCalled()
   };  
 

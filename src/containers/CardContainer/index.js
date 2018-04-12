@@ -44,7 +44,6 @@ export class CardContainer extends Component {
         { 
           this.state.activeList.length > 0 ? this.state.activeList : this.state.pokemonList
         }
-        
       </div>
     )
   }
