@@ -5,6 +5,7 @@ export const getPokemonTypeData = async () => {
     console.log(pokemonTypeData)
   } catch (error) {
     console.log('get type data', error)
+    throw new Error('Unable to get Pokemon Type Data')
   }
 
 }
