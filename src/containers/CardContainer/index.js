@@ -9,48 +9,52 @@ export class CardContainer extends Component {
     super(props)
     this.state = {
       pokemonList: [],
-      favorite: {}
+      favoritedList: [],
+      favorite: {},
+      favoriteInfo: []
     }
   }
 
   handleClick = (type) => {
-    console.log(type.pokemon)
-    this.setState({
-      favorite: type
-    })
+    // this.setState({
+    //   favorite: type
+    // })
+    this.makeFavoriteArray(type)
 
     //fetch for pokemon data
   }
 
   componentDidMount() {
     const pokemonList = this.props.typeData.map((type, index) => 
-      <Card key={index} type={type} handleClick={this.handleClick}/>)
-    console.log(pokemonList) 
+      <Card key={index} type={type} pokemon={[]} handleClick={this.handleClick}/>)
     this.setState({
       pokemonList
     })
   }
 
-  // componentDidUpdate() {
-  //   const pokemonList = this.props.typeData.map((type, index) => {
-  //     if (type.id === this.state.favorite.id) {
-  //       <Card key={index} type={type} handleClick={this.handleClick}/>)  
-  //     } else {
-  //       <Card key={index} type={type} handleClick={this.handleClick}/>)  
-  //     }
-  //   }
-  //   console.log(pokemonList) 
-  //   this.setState({
-  //     pokemonList
-  //   })
-  //   }
-  // }
+  makeFavoriteArray = (type) => {
+    const favoritedList = this.props.typeData.map((typeObj, index) => {
+      if (typeObj.id === type.id) {
+        return <Card key={index} type={type} pokemon={type.pokemon} handleClick={this.handleClick}/>  
+      } else {
+        return <Card key={index} type={type} pokemon={[]} handleClick={this.handleClick}/>  
+      }
+    })
+    console.log('favorited list', favoritedList)
+    this.setState({
+      favoritedList
+    })
+    
+  }
 
   render() {
     console.log()
     return (
       <div className="card-container">
-        {this.state.pokemonList}
+        { 
+          this.state.favoritedList.length > 0 ? this.state.favoritedList : this.state.pokemonList
+        }
+        
       </div>
     )
   }
