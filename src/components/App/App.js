@@ -8,9 +8,7 @@ import * as actions from '../../actions';
 export class App extends Component {
   async componentDidMount() {
     const typeData = await api.getPokemonTypeData()
-    console.log('typeData in App', typeData)
     this.props.addTypeData(typeData)
-
   }
 
   render() {

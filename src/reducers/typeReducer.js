@@ -5,5 +5,4 @@ export const typeReducer = (state = [], actions) => {
     default:
       return state;
   }
-
 }
