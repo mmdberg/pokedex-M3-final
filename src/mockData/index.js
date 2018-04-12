@@ -23,3 +23,11 @@ export const mockType = {
       "20"
     ]
   }
+
+  export const singlePokemonType = [{
+    "id": "1",
+    "name": "normal",
+    "pokemon": [
+      "16"
+    ]
+  }]
